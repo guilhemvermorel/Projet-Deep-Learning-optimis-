@@ -124,7 +124,7 @@ print('Finished Training')
 
 
 ##save the model
-PATH = './lab4scheduler3_cifar_resnet.pth'
+PATH = './minicifar_resnet.pth'
 torch.save(model.state_dict(), PATH)
 
 
