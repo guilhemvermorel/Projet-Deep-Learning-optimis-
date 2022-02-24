@@ -72,6 +72,6 @@ print('Finished Training')
 
 
 ##save the model
-PATH = './lab2_cifar_resnet.pth'
+PATH = './minicifar_quantization_resnet.pth'
 torch.save(modelbc.model.state_dict(), PATH)
 
