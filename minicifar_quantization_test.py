@@ -8,7 +8,7 @@ trainloader = DataLoader(minicifar_train,batch_size=32,shuffle=False,sampler=tra
 testloader = DataLoader(minicifar_test,batch_size=32) 
 
 model = resnet.ResNet18()
-model.load_state_dict(torch.load('/homes/g20vermo/Documents/ai-optim/lab2/lab2_cifar_resnet.pth'))
+model.load_state_dict(torch.load('/minicifar_quantization_resnet.pth'))
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 modelbc = BC(model)
 modelbc.model = modelbc.model.to(device)
