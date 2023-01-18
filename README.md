@@ -39,15 +39,15 @@ Lancer directement le fichier `test.py` et la fonction `profil.py` pour savoir l
 ## Résultats
 Les meilleurs résultats ont été obtenus avec l'entraînement d'un réseau `ResNet18`, avec des `grouped convolutions` de 8, la méthode de `data augmentation` : `cutmix`. Le modèle est entraîné une première fois sur 100 epochs suivit d'un premier `global pruning` à 70%, un second entraînement sur 25 epochs suivit d'un second `global pruning` à 70%, enfin un dernier entraînement sur 125 epochs. Les tests finales sont réalisées avec la méthode de `quantization after training`. 
 
-Entraînement : \
+Entraînement :\
 ![accuracy](results/accuracy.png) 
 ![loss](results/loss.png) 
 
-Test : \
+Test :\
 `Accuracy = 0.9012`
 
-Optimisation : \ 
-Réduction du nombre de paramètre totale de `97%` et du nombre d'opérations totale de `88%` accordé par la fonction `profil.py`. Réduction de la place en mémoire des données de poids du modèle entrainé lors des tests par 2. 
+Optimisation : 
+<br/> Réduction du nombre de paramètre totale de `97%` et du nombre d'opérations totale de `88%` accordé par la fonction `profil.py`. Réduction de la place en mémoire des données de poids du modèle entrainé lors des tests par 2. 
 
 ## Références 
 Le modèle de ResNet utilisé provient directement des travaux de recherche de Kaiming He, Xiangyu Zhang, Shaoqing Ren et Jian Sun : [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf). \
