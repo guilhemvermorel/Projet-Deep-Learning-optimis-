@@ -1,5 +1,4 @@
-import resnet as resnet
-#import resnet_factorized as resnet
+import resnet_factorized
 import torch.optim as optim
 from set_cutmix_train import train
 #from set_mixup_train import train
@@ -14,7 +13,7 @@ max_lr=0.01
 weight_decay = 1e-5
 opt_func = optim.SGD
 momentum=0.5 #SGD only
-model = resnet.ResNet18()  
+model = resnet_factorized.ResNet18()  
 
 
 #train
@@ -23,7 +22,7 @@ model,epochs,train_loss,valid_loss,train_accuracy,valid_accuracy = train(device,
 
 
 #save the model
-PATH = './cifar10_cutmix.pth'
+PATH = './model.pth'
 torch.save(model.state_dict(), PATH)
 
 
@@ -34,7 +33,7 @@ plt.plot(epochs,valid_loss,label='Validation loss')
 plt.title('Train and Validation loss')
 plt.legend()
 plt.grid()
-plt.savefig('cifar10(cutmix)_loss.png')
+plt.savefig('loss.png')
 
 
 plt.figure()
@@ -43,4 +42,4 @@ plt.plot(epochs,valid_accuracy,label='Validation accuracy')
 plt.title('Train and Validation accuracy')
 plt.legend()
 plt.grid()
-plt.savefig('cifar10(cutmix)_accuracy.png')
+plt.savefig('accuracy.png')

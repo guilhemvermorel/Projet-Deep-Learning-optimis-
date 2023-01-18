@@ -17,7 +17,7 @@ def pruning(model,num_pruning):
             parameters_to_prune += ((module,'weight'),)
 
         
-    #We prune 70% of weights with the lowest L1 norm
+    #We prune 70% of weights from linear and convolutional layers with the lowest L1 norm
     prune.global_unstructured(
         parameters_to_prune,
         pruning_method=prune.L1Unstructured,

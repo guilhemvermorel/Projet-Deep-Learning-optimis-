@@ -1,10 +1,9 @@
-import resnet as resnet
-#import resnet_factorized as resnet
+import resnet_factorized 
 from cifar10 import opendata,c10train,c10test,train_sampler,valid_sampler
 import torch
 
 
-model = resnet.ResNet18()
+model = resnet_factorized.ResNet18()
 model.load_state_dict(torch.load('/cifar10_cutmix.pth'))
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)

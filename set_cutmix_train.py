@@ -3,7 +3,6 @@ import torch.nn as nn
 from cifar10 import opendata,c10train,c10test,train_sampler,valid_sampler
 import numpy as np
 import torch.optim.lr_scheduler as oscheduler
-import matplotlib.pyplot as plt
 
 
 ##Cutmix functions 

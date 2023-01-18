@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from cifar10 import opendata,c10train,c10test,train_sampler,valid_sampler
 from set_cutmix_train import cutmix_data, cutmix_criterion
 import torch

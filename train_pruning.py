@@ -1,5 +1,4 @@
-import resnet as resnet
-#import resnet_factorized as resnet
+import resnet_factorized 
 import torch.optim as optim
 from pruning import pruning,memory_footprint
 from set_cutmix_train import train
@@ -16,7 +15,7 @@ grad_clip = 0.1
 weight_decay = 1e-5
 opt_func = optim.SGD
 momentum=0.5 #SGD only
-model = resnet.ResNet18()  
+model = resnet_factorized.ResNet18()  
 
 
 #train
@@ -25,7 +24,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model,epochs1,train_loss1,valid_loss1,train_accuracy1,valid_accuracy1 = train(device,model,100,max_lr,grad_clip,weight_decay,opt_func,momentum)
 summary_str1 = memory_footprint(32,model)
 
-#first pruning for 70% of weights (30% of weights remaining)
+#first pruning for 70% of weights for conv and linear layers (30% of these weights remaining)
 pruning(model,1)
 
 #we train a second time for 25 epochs
@@ -33,7 +32,7 @@ model,epochs2,train_loss2,valid_loss2,train_accuracy2,valid_accuracy2 = train(de
 epochs2 = epochs1+[len(epochs1)+ i for i in range(len(epochs2))]
 summary_str2 = memory_footprint(32,model)
 
-#second pruning for 70% of weights (9% of weights remaining)
+#second pruning for 70% of weights for conv and linear layers (9% of these weights remaining)
 pruning(model,2)
 
 #we train a third time for 125 epochs
