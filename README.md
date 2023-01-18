@@ -43,10 +43,10 @@ Entraînement : \
 ![accuracy](results/accuracy.png) 
 ![loss](results/loss.png) 
 
-Test :
+Test : \
 `Accuracy = 0.9012`
 
-Optimisation : 
+Optimisation : \ 
 Réduction du nombre de paramètre totale de `97%` et du nombre d'opérations totale de `88%` accordé par la fonction `profil.py`. Réduction de la place en mémoire des données de poids du modèle entrainé lors des tests par 2. 
 
 ## Références 
